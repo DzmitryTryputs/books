@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet id="CREATE_TABLE_AUTHORS" author="tryputs">
+    <createTable tableName="AUTHORS">
+      <column name="ID" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="AUTHORS_PK" />
+      </column>
+      <column name="FIRST_NAME" type="VARCHAR(50)" />
+      <column name="LAST_NAME" type="VARCHAR(50)" />
+      <column name="DATE_OF_BIRTH" type="DATE"/>
+    </createTable>
+    <rollback>
+      <dropTable tableName="AUTHORS" />
+    </rollback>
+  </changeSet>
+
+  <changeSet id="CREATE_TABLE_BOOKS" author="tryputs">
+    <createTable tableName="BOOKS">
+      <column name="ID" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="BOOKS_PK" />
+      </column>
+      <column name="TITLE" type="VARCHAR(50)">
+        <constraints nullable="false" unique="true" />
+      </column>
+      <column name="PAGES" type="BIGINT"/>
+    </createTable>
+    <rollback>
+      <dropTable tableName="BOOKS" />
+    </rollback>
+  </changeSet>
+
+  <changeSet id="CREATE_BOOKS_AUTHORS_TABLE" author="tryputs">
+    <createTable tableName="BOOKS_AUTHORS">
+      <column name="BOOK_ID" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="AUTHOR_ID" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addForeignKeyConstraint baseTableName="BOOKS_AUTHORS" baseColumnNames="AUTHOR_ID" constraintName="FK_BOOKS_AUTHORS__AUTHORS"
+                             referencedTableName="AUTHORS"
+                             referencedColumnNames="ID"/>
+    <addForeignKeyConstraint baseTableName="BOOKS_AUTHORS" baseColumnNames="BOOK_ID" constraintName="FK_BOOKS_AUTHORS__BOOKS"
+                             referencedTableName="BOOKS"
+                             referencedColumnNames="ID"/>
+    <addPrimaryKey tableName="BOOKS_AUTHORS" columnNames="BOOK_ID, AUTHOR_ID" />
+    <rollback>
+      <dropTable tableName="BOOKS_AUTHORS"/>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="CREATE_TABLE_GENRES" author="tryputs">
+    <createTable tableName="GENRES">
+      <column name="ID" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="GENRES_PK" />
+      </column>
+      <column name="NAME" type="VARCHAR(50)">
+        <constraints nullable="false" unique="true" />
+      </column>
+    </createTable>
+    <rollback>
+      <dropTable tableName="GENRES" />
+    </rollback>
+  </changeSet>
+
+  <changeSet id="CREATE_BOOKS_GENRES_TABLE" author="tryputs">
+    <createTable tableName="BOOKS_GENRES">
+      <column name="BOOK_ID" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="GENRE_ID" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addForeignKeyConstraint baseTableName="BOOKS_GENRES" baseColumnNames="GENRE_ID" constraintName="FK_BOOKS_GENRES__GENRES"
+                             referencedTableName="GENRES"
+                             referencedColumnNames="ID"/>
+    <addForeignKeyConstraint baseTableName="BOOKS_GENRES" baseColumnNames="BOOK_ID" constraintName="FK_BOOKS_GENRES__BOOKS"
+                             referencedTableName="BOOKS"
+                             referencedColumnNames="ID"/>
+    <addPrimaryKey tableName="BOOKS_GENRES" columnNames="BOOK_ID, GENRE_ID" />
+    <rollback>
+      <dropTable tableName="BOOKS_GENRES"/>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>
