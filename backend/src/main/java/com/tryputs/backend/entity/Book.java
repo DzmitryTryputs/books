@@ -3,7 +3,6 @@ package com.tryputs.backend.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,15 +27,11 @@ public class Book extends IdentifiableEntity {
     @Column(name = "PAGES")
     private Long pages;
 
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "BOOKS_GENRES", joinColumns = {@JoinColumn(name = "BOOK_ID")},
         inverseJoinColumns = {@JoinColumn(name = "GENRE_ID")})
     private List<Genre> genres = new ArrayList<>();
 
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "BOOKS_AUTHORS", joinColumns = {@JoinColumn(name = "BOOK_ID")},
         inverseJoinColumns = {@JoinColumn(name = "AUTHOR_ID")})

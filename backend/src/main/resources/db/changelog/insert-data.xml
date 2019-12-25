@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="insert_genres" author="tryputs">
+        <insert tableName="GENRES">
+            <column name="name" value="Action and Adventure"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Anthology"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Classic"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Comic and Graphic Novel"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Crime and Detective"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Drama"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Fable"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Fairy Tale"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Fan-Fiction"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Fantasy"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Historical Fiction"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Horror"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Humor"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Legend"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Magical Realism"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Mystery"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Mythology"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Realistic Fiction"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Romance"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Satire"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Science Fiction (Sci-Fi)"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Short Story"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Suspense/Thriller"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Biography/Autobiography"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Essay"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Memoir"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Narrative Nonfiction"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Reference Books"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Self-help Book"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Speech"/>
+        </insert>
+        <insert tableName="GENRES">
+            <column name="name" value="Textbook"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

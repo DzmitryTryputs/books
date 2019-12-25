@@ -3,7 +3,6 @@ package com.tryputs.backend.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,8 +22,6 @@ public class Genre extends IdentifiableEntity {
     @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "genres", fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 }
