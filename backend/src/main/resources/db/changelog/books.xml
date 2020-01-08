@@ -23,10 +23,11 @@
       <column name="ID" type="BIGINT" autoIncrement="true">
         <constraints primaryKey="true" primaryKeyName="BOOKS_PK" />
       </column>
-      <column name="TITLE" type="VARCHAR(50)">
+      <column name="TITLE" type="VARCHAR(100)">
         <constraints nullable="false" unique="true" />
       </column>
       <column name="PAGES" type="BIGINT"/>
+      <column name="YEAR" type="BIGINT"/>
     </createTable>
     <rollback>
       <dropTable tableName="BOOKS" />

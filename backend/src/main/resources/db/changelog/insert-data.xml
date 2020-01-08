@@ -6,97 +6,251 @@
 
     <changeSet id="insert_genres" author="tryputs">
         <insert tableName="GENRES">
+            <column name="id" value="1"/>
             <column name="name" value="Action and Adventure"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="2"/>
             <column name="name" value="Anthology"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="3"/>
             <column name="name" value="Classic"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="4"/>
             <column name="name" value="Comic and Graphic Novel"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="5"/>
             <column name="name" value="Crime and Detective"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="6"/>
             <column name="name" value="Drama"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Fable"/>
-        </insert>
-        <insert tableName="GENRES">
+            <column name="id" value="7"/>
             <column name="name" value="Fairy Tale"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="8"/>
             <column name="name" value="Fan-Fiction"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="9"/>
             <column name="name" value="Fantasy"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Historical Fiction"/>
-        </insert>
-        <insert tableName="GENRES">
+            <column name="id" value="10"/>
             <column name="name" value="Horror"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="11"/>
             <column name="name" value="Humor"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Legend"/>
+            <column name="id" value="12"/>
+            <column name="name" value="Novel"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Magical Realism"/>
-        </insert>
-        <insert tableName="GENRES">
+            <column name="id" value="13"/>
             <column name="name" value="Mystery"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="14"/>
             <column name="name" value="Mythology"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Realistic Fiction"/>
-        </insert>
-        <insert tableName="GENRES">
+            <column name="id" value="15"/>
             <column name="name" value="Romance"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Satire"/>
+            <column name="id" value="16"/>
+            <column name="name" value="Tragedy"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Science Fiction (Sci-Fi)"/>
-        </insert>
-        <insert tableName="GENRES">
-            <column name="name" value="Short Story"/>
-        </insert>
-        <insert tableName="GENRES">
+            <column name="id" value="17"/>
             <column name="name" value="Suspense/Thriller"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="18"/>
             <column name="name" value="Biography/Autobiography"/>
         </insert>
         <insert tableName="GENRES">
-            <column name="name" value="Essay"/>
-        </insert>
-        <insert tableName="GENRES">
-            <column name="name" value="Memoir"/>
-        </insert>
-        <insert tableName="GENRES">
-            <column name="name" value="Narrative Nonfiction"/>
-        </insert>
-        <insert tableName="GENRES">
-            <column name="name" value="Reference Books"/>
-        </insert>
-        <insert tableName="GENRES">
+            <column name="id" value="19"/>
             <column name="name" value="Self-help Book"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="20"/>
             <column name="name" value="Speech"/>
         </insert>
         <insert tableName="GENRES">
+            <column name="id" value="21"/>
             <column name="name" value="Textbook"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert_books" author="tryputs">
+        <insert tableName="BOOKS">
+            <column name="id" value="1"/>
+            <column name="title" value="Don Quixote"/>
+            <column name="pages" value="863"/>
+            <column name="year" value="1605"/>
+        </insert>
+        <insert tableName="BOOKS">
+            <column name="id" value="2"/>
+            <column name="title" value="The Great Gatsby"/>
+            <column name="pages" value="218"/>
+            <column name="year" value="1925"/>
+        </insert>
+        <insert tableName="BOOKS">
+            <column name="id" value="3"/>
+            <column name="title" value="War and Peace"/>
+            <column name="pages" value="1225"/>
+            <column name="year" value="1865"/>
+        </insert>
+        <insert tableName="BOOKS">
+            <column name="id" value="4"/>
+            <column name="title" value="Design Patterns: Elements of Reusable Object-Oriented Software"/>
+            <column name="pages" value="395"/>
+            <column name="year" value="1994"/>
+        </insert>
+        <insert tableName="BOOKS">
+            <column name="id" value="5"/>
+            <column name="title" value="The Lord of the Rings"/>
+            <column name="pages" value="1137"/>
+            <column name="year" value="1954"/>
+        </insert>
+        <insert tableName="BOOKS">
+            <column name="id" value="6"/>
+            <column name="title" value="The Hobbit, or There and Back Again"/>
+            <column name="pages" value="310"/>
+            <column name="year" value="1937"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert_authors" author="tryputs">
+        <insert tableName="AUTHORS">
+            <column name="id" value="1"/>
+            <column name="first_name" value="Miguel de Cervantes"/>
+            <column name="last_name" value="Saavedra"/>
+            <column name="date_of_birth" value="1547-09-29"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="2"/>
+            <column name="first_name" value="Francis Scott"/>
+            <column name="last_name" value="Fitzgerald"/>
+            <column name="date_of_birth" value="1896-09-24"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="3"/>
+            <column name="first_name" value="Lev"/>
+            <column name="last_name" value="Tolstoy"/>
+            <column name="date_of_birth" value="1828-09-09"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="4"/>
+            <column name="first_name" value="Erich"/>
+            <column name="last_name" value="Gamma"/>
+            <column name="date_of_birth" value="1961-03-13"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="5"/>
+            <column name="first_name" value="Ralph"/>
+            <column name="last_name" value="Johnson"/>
+            <column name="date_of_birth" value="1955-10-07"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="6"/>
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Vlissides"/>
+            <column name="date_of_birth" value="1961-08-02"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="7"/>
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Tolkien"/>
+            <column name="date_of_birth" value="1892-01-03"/>
+        </insert>
+        <insert tableName="AUTHORS">
+            <column name="id" value="8"/>
+            <column name="first_name" value="Richard"/>
+            <column name="last_name" value="Helm"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert_books_authors" author="tryputs">
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="1"/>
+            <column name="author_id" value="1"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="2"/>
+            <column name="author_id" value="2"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="3"/>
+            <column name="author_id" value="3"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="4"/>
+            <column name="author_id" value="4"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="4"/>
+            <column name="author_id" value="5"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="4"/>
+            <column name="author_id" value="6"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="4"/>
+            <column name="author_id" value="8"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="5"/>
+            <column name="author_id" value="7"/>
+        </insert>
+        <insert tableName="BOOKS_AUTHORS">
+            <column name="book_id" value="6"/>
+            <column name="author_id" value="7"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert_books_genres" author="tryputs">
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="1"/>
+            <column name="genre_id" value="12"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="2"/>
+            <column name="genre_id" value="16"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="3"/>
+            <column name="genre_id" value="12"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="4"/>
+            <column name="genre_id" value="21"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="5"/>
+            <column name="genre_id" value="1"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="5"/>
+            <column name="genre_id" value="9"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="6"/>
+            <column name="genre_id" value="1"/>
+        </insert>
+        <insert tableName="BOOKS_GENRES">
+            <column name="book_id" value="6"/>
+            <column name="genre_id" value="9"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

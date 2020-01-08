@@ -27,6 +27,9 @@ public class Book extends IdentifiableEntity {
     @Column(name = "PAGES")
     private Long pages;
 
+    @Column(name = "YEAR")
+    private Long year;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "BOOKS_GENRES", joinColumns = {@JoinColumn(name = "BOOK_ID")},
         inverseJoinColumns = {@JoinColumn(name = "GENRE_ID")})
