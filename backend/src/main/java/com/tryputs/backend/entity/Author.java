@@ -1,5 +1,6 @@
 package com.tryputs.backend.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "AUTHORS")
 @EqualsAndHashCode(callSuper = true)
 public class Author extends IdentifiableEntity {

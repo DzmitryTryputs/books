@@ -1,19 +1,22 @@
 package com.tryputs.backend.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@Builder
 @EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookDto extends AbstractDto {
 
-    private final String title;
-    private final Long pages;
-    private final List<GenreDto> genres = new ArrayList<>();
-    private final List<AuthorDto> authors = new ArrayList<>();
+    private String title;
+    private Long pages;
+    private List<GenreDto> genres = new ArrayList<>();
+    private List<AuthorDto> authors = new ArrayList<>();
 }
