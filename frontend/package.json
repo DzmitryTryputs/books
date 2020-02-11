@@ -9,7 +9,21 @@
   },
   "dependencies": {
     "core-js": "^3.4.3",
-    "vue": "^2.6.10"
+    "vue-router": "^3.0.2",
+    "ant-design-vue": "^1.2.2",
+    "vue": "^2.6.10",
+    "chart.js": "^2.7.3",
+    "handlebars": "^4.0.12",
+    "jsvat": "^1.2.4",
+    "laravel-mix": "^4.0.12",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "numeral": "^2.0.6",
+    "puppeteer": "^1.11.0",
+    "tiptap": "^1.5.0",
+    "url-parse": "^1.4.4",
+    "vue-chartjs": "^3.4.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -19,7 +33,12 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
+  },
+  "engines": {
+    "node": "8.5.0"
   },
   "eslintConfig": {
     "root": true,
