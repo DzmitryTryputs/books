@@ -6,7 +6,24 @@
       </a-spin>
     </template>
     <template v-else>
-      <a-table :columns="columns" :dataSource="books" />
+      <a-table :dataSource="books" >
+        <a-table-column title="Number" dataIndex="id" key="id" width="5%"/>
+        <a-table-column title="Book Title" dataIndex="title" key="title" width="30%"/>
+        <a-table-column title="Year" dataIndex="year" key="year" width="5%"/>
+        <a-table-column title="Pages" dataIndex="pages" key="pages" width="5%"/>
+        <a-table-column title="Genres" dataIndex="genres" key="genres" width="20%">
+          <template slot-scope="genres">
+        <span>
+          <a-div>{{concatGenres(genres)}}</a-div>
+        </span>
+          </template>
+        </a-table-column>
+        <a-table-column title="Authors" dataIndex="authors" key="authors" width="30%">
+          <template slot-scope="authors">
+            <a-div>{{concatAuthorNames(authors)}}</a-div>
+          </template>
+        </a-table-column>
+        </a-table>
     </template>
   </div>
 </template>
@@ -14,37 +31,26 @@
 <script>
 import axios from "axios";
 
-const columns = [
-  {
-    dataIndex: "id",
-    title: "Number",
-    key: "book_number",
-    width: "10%"
-  },
-  {
-    dataIndex: "title",
-    title: "Book Title",
-    key: "book.title",
-    width: "60%"
-  },
-  {
-    title: "Author",
-    dataIndex: "authors",
-    key: "book.author",
-    width: "15%",
-  }
-];
-
 export default {
   name: "BooksList",
   data() {
     return {
-      columns: columns,
+
       books: [],
       loading: false
     };
   },
   methods: {
+    concatAuthorNames(authors) {
+      return authors.map(function(author) {
+        return author.firstName + " " + author.lastName;
+      }).join(", ");
+    },
+    concatGenres(genres) {
+      return genres.map(function(genre) {
+        return genre.name;
+      }).join(", ");
+    },
     async getAllInvoices() {
       this.loading = true;
       axios.get('backend/books')

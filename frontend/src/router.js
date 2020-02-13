@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import BooksList from "./components/books/Books";
 import Home from "./components/Home";
+import CreateBook from "./components/books/Create";
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ let router = new Router({
       path: '/books',
       name: 'books',
       component: BooksList
+    },
+    {
+      path: '/books/create',
+      name: 'createBook',
+      component: CreateBook
     }
   ]
 });

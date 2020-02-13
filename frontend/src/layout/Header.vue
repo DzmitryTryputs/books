@@ -29,7 +29,7 @@ export default {
   .ant-menu {
     max-width: 980px;
     width: 100%;
-    margin: 0 auto;
+    margin: auto;
     &.ant-menu-dark {
       font-weight: bold;
       background: #0078c8;

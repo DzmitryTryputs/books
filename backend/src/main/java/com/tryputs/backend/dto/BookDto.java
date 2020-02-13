@@ -17,6 +17,7 @@ public class BookDto extends AbstractDto {
 
     private String title;
     private Long pages;
+    private Long year;
     private List<GenreDto> genres = new ArrayList<>();
     private List<AuthorDto> authors = new ArrayList<>();
 }
