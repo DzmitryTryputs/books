@@ -6,24 +6,24 @@
       </a-spin>
     </template>
     <template v-else>
-      <a-table :dataSource="books" >
+      <a-table :dataSource="books" key="id">
         <a-table-column title="Number" dataIndex="id" key="id" width="5%"/>
         <a-table-column title="Book Title" dataIndex="title" key="title" width="30%"/>
         <a-table-column title="Year" dataIndex="year" key="year" width="5%"/>
         <a-table-column title="Pages" dataIndex="pages" key="pages" width="5%"/>
         <a-table-column title="Genres" dataIndex="genres" key="genres" width="20%">
           <template slot-scope="genres">
-        <span>
-          <a-div>{{concatGenres(genres)}}</a-div>
-        </span>
+            <span>
+              <div>{{concatGenres(genres)}}</div>
+            </span>
           </template>
         </a-table-column>
         <a-table-column title="Authors" dataIndex="authors" key="authors" width="30%">
           <template slot-scope="authors">
-            <a-div>{{concatAuthorNames(authors)}}</a-div>
+            <div>{{concatAuthorNames(authors)}}</div>
           </template>
         </a-table-column>
-        </a-table>
+      </a-table>
     </template>
   </div>
 </template>
@@ -35,7 +35,6 @@ export default {
   name: "BooksList",
   data() {
     return {
-
       books: [],
       loading: false
     };

@@ -1,16 +1,14 @@
 <template>
   <a-layout-header>
-    <a-menu
-      theme="dark"
-      mode="horizontal"
-      :defaultSelectedKeys="['1']"
-      :style="{ lineHeight: '52px' }"
-    >
+    <a-menu theme="dark" mode="horizontal" :defaultSelectedKeys="['1']" :style="{ lineHeight: '52px' }">
       <a-menu-item key="1">
         <router-link :to="{name: 'home'}">Home</router-link>
       </a-menu-item>
       <a-menu-item key="2">
         <router-link :to="{name: 'books'}">Books</router-link>
+      </a-menu-item>
+      <a-menu-item key="3">
+        <router-link :to="{name: 'authors'}">Authors</router-link>
       </a-menu-item>
     </a-menu>
   </a-layout-header>

@@ -3,7 +3,7 @@
     <a-layout id="components-layout-demo-top" class="layout" :style="{ height: '100%', width: '100%' }">
       <navbar/>
 
-      <a-layout-content id="layoutContent" style="max-width: 80%; width: 100%; margin: 0 auto;">
+      <a-layout-content id="layoutContent" style="max-width: 60%; width: 100%; margin: 0 auto;">
         <div :style="{ minHeight: '280px', width: '100%' }">
           <router-view/>
         </div>

@@ -1,7 +1,7 @@
 package com.tryputs.backend.controller;
 
-import com.tryputs.backend.dto.BookDto;
-import com.tryputs.backend.service.BookService;
+import com.tryputs.backend.dto.AuthorDto;
+import com.tryputs.backend.service.AuthorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("/books")
+@RequestMapping("/authors")
 @RestController
 @AllArgsConstructor
-public class BookController {
+public class AuthorController {
 
-    private BookService bookService;
+    private AuthorService authorService;
 
     @GetMapping
-    public ResponseEntity<List<BookDto>> getAll() {
-        return ResponseEntity.ok(bookService.getAll());
+    public ResponseEntity<List<AuthorDto>> getAll() {
+        return ResponseEntity.ok(authorService.getAll());
     }
 
     @PostMapping("/add")
-    public ResponseEntity<BookDto> add(@RequestBody BookDto book) {
-        return ResponseEntity.ok(bookService.add(book));
+    public ResponseEntity<AuthorDto> add(@RequestBody AuthorDto author) {
+        return ResponseEntity.ok(authorService.add(author));
     }
 }
