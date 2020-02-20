@@ -1,10 +1,11 @@
 package com.tryputs.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 
 @NoRepositoryBean
-public interface AbstractRepository<Dbo> extends JpaRepository<Dbo, Long> {
+public interface AbstractRepository<Dbo> extends JpaRepository<Dbo, Long>, QuerydslPredicateExecutor<Dbo> {
 }
 
 
