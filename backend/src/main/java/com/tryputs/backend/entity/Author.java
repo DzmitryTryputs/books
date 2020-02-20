@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -33,7 +33,8 @@ public class Author extends IdentifiableEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
-    @ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "authors")
     private List<Book> books = new ArrayList<>();
 }
 

@@ -5,6 +5,7 @@ import com.tryputs.backend.mapper.BookMapper;
 import com.tryputs.backend.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ public class BookService {
     private BookRepository bookRepository;
     private BookMapper bookMapper;
 
+    @Transactional
     public List<BookDto> getAll() {
         return  bookRepository.findAll().stream().map(bookMapper::toDto).collect(Collectors.toList());
     }

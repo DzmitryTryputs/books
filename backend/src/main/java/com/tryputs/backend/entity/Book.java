@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -15,8 +15,8 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "books")
@@ -32,12 +32,14 @@ public class Book extends IdentifiableEntity {
     @Column(name = "YEAR")
     private Long year;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
+    @ToString.Exclude
     @JoinTable(name = "BOOKS_GENRES", joinColumns = {@JoinColumn(name = "BOOK_ID")},
         inverseJoinColumns = {@JoinColumn(name = "GENRE_ID")})
     private List<Genre> genres = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
+    @ToString.Exclude
     @JoinTable(name = "BOOKS_AUTHORS", joinColumns = {@JoinColumn(name = "BOOK_ID")},
         inverseJoinColumns = {@JoinColumn(name = "AUTHOR_ID")})
     private List<Author> authors = new ArrayList<>();
