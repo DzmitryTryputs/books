@@ -1,8 +1,6 @@
 package com.tryputs.backend.dto;
 
-import com.tryputs.backend.entity.Book;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

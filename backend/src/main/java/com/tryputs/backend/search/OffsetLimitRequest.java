@@ -12,6 +12,10 @@ public class OffsetLimitRequest implements Pageable {
     private final int pageSize;
     private Sort sort;
 
+    public OffsetLimitRequest(final PageableSearchRequest pageableSearchRequest) {
+        this(pageableSearchRequest.getOffset(), pageableSearchRequest.getLimit());
+    }
+
     private OffsetLimitRequest(final long offset, final int pageSize) {
         if (offset < 0) {
             throw new IllegalArgumentException("Offset can't be less than 0");
@@ -24,10 +28,6 @@ public class OffsetLimitRequest implements Pageable {
         this.offset = offset;
         this.pageSize = pageSize;
         this.sort = Sort.unsorted();
-    }
-
-    public OffsetLimitRequest(final PageableSearchRequest pageableSearchRequest) {
-        this(pageableSearchRequest.getOffset(), pageableSearchRequest.getLimit());
     }
 
     @Override

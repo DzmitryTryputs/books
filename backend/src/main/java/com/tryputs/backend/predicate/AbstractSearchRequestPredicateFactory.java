@@ -5,15 +5,18 @@ import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.DatePath;
 import com.querydsl.core.types.dsl.DateTimePath;
 import com.querydsl.core.types.dsl.EnumPath;
+import com.querydsl.core.types.dsl.ListPath;
 import com.querydsl.core.types.dsl.NumberPath;
+import com.querydsl.core.types.dsl.SimpleExpression;
 import com.querydsl.core.types.dsl.StringPath;
 import com.tryputs.backend.search.PageableSearchRequest;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Optional;
-
-import static liquibase.util.StringUtils.isNotEmpty;
 
 public abstract class AbstractSearchRequestPredicateFactory<T extends PageableSearchRequest> {
 
@@ -28,7 +31,7 @@ public abstract class AbstractSearchRequestPredicateFactory<T extends PageableSe
     abstract void buildPredicates(final T searchRequest);
 
     void addExpression(final StringPath field, final String value) {
-        if (isNotEmpty(value)) {
+        if (StringUtils.isNotEmpty(value)) {
             booleanBuilder.and(field.containsIgnoreCase(value));
         }
     }
@@ -62,6 +65,13 @@ public abstract class AbstractSearchRequestPredicateFactory<T extends PageableSe
         }
         if (to != null) {
             booleanBuilder.and(date.before(to.plusSeconds(1)));
+        }
+    }
+
+    <E, Q extends SimpleExpression<? super E>> void addListExpression(final ListPath<E, Q> qBusinessTypes,
+                                                                      final Collection<E> businessTypes) {
+        if (!CollectionUtils.isEmpty(businessTypes)) {
+            booleanBuilder.and(qBusinessTypes.any().in(businessTypes));
         }
     }
 }
