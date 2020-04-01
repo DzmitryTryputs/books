@@ -1,43 +1,37 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import BooksList from "./components/books/Books";
-import Home from "./components/Home";
-import CreateBook from "./components/books/Create";
-import AuthorsList from "./components/authors/Authors";
-import CreateAuthor from "./components/authors/Create";
+import Vue from 'vue'
+import Router from 'vue-router'
 
-Vue.use(Router);
+Vue.use(Router)
 
-let router = new Router({
-  mode: 'history',
+export default new Router({
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      component: () => import('@/views/components/core/Index'),
+      children: [
+        {
+          name: 'Books',
+          path: '/books',
+          component: () => import('@/views/books/Books'),
+        },
+        {
+          path: '/books/create',
+          name: 'Create Book',
+          component: () => import('@/views/books/Create'),
+        },
+        {
+          name: 'Authors',
+          path: '/authors',
+          component: () => import('@/views/authors/Authors'),
+        },
+        {
+          name: 'Create Author',
+          path: '/authors/create',
+          component: () => import('@/views/authors/Create'),
+        },
+      ],
     },
-    {
-      path: '/books',
-      name: 'books',
-      component: BooksList
-    },
-    {
-      path: '/books/create',
-      name: 'createBook',
-      component: CreateBook
-    },
-    {
-      path: '/authors',
-      name: 'authors',
-      component: AuthorsList
-    },
-    {
-      path: '/authors/create',
-      name: 'createAuthor',
-      component: CreateAuthor
-    }
-  ]
-});
-
-export default router;
+  ],
+})
