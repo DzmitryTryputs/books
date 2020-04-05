@@ -1,6 +1,7 @@
 package com.tryputs.backend.controller;
 
 import com.tryputs.backend.dto.BookDto;
+import com.tryputs.backend.search.BookSearchRequest;
 import com.tryputs.backend.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,10 @@ public class BookController {
     @PostMapping("/add")
     public ResponseEntity<BookDto> add(@RequestBody BookDto book) {
         return ResponseEntity.ok(bookService.add(book));
+    }
+
+    @PostMapping("/search")
+    public ResponseEntity<List<BookDto>> search(@RequestBody BookSearchRequest search) {
+        return ResponseEntity.ok(bookService.search(search));
     }
 }

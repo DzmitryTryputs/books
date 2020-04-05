@@ -54,31 +54,105 @@
             </v-card>
 
         <template>
-            <search-panel :rightDrawer="rightDrawer" @cancelSearch="cancelSearch" @searchData="searchProducts">
+            <search-panel :rightDrawer="rightDrawer" @cancelSearch="cancelSearch" @searchData="searchBooks">
                 <v-layout row>
-                    <v-flex xs11 offset-xs1>
-                        <v-text-field name="productName" label="Product" light ></v-text-field>
+                    <v-flex  offset-xs1 style="margin-left: 4%; margin-right: 4%">
+                            <v-subheader style="font-size: 14px">Book Years range:</v-subheader>
+                                        <v-range-slider
+                                                v-model="yearsRange"
+                                                :max="max"
+                                                :min="min"
+                                                step="1"
+                                                hide-details
+                                                class="align-center"
+                                        >
+                                            <template v-slot:prepend>
+                                                <v-text-field
+                                                        :value="yearsRange[0]"
+                                                        class="mt-0 pt-0"
+                                                        hide-details
+                                                        single-line
+                                                        type="number"
+                                                        style="width: 60px"
+                                                        @change="$set(yearsRange, 0, $event)"
+                                                ></v-text-field>
+                                            </template>
+                                            <template v-slot:append>
+                                                <v-text-field
+                                                        :value="yearsRange[1]"
+                                                        class="mt-0 pt-0"
+                                                        hide-details
+                                                        single-line
+                                                        type="number"
+                                                        style="width: 60px"
+                                                        @change="$set(yearsRange, 1, $event)"
+                                                ></v-text-field>
+                                            </template>
+                                        </v-range-slider>
+
+
                     </v-flex>
                 </v-layout>
                 <v-layout row>
-                    <v-flex xs11 offset-xs1>
+                    <v-flex  offset-xs1 style="margin-left: 4%; margin-right: 4%">
+                        <v-subheader style="font-size: 14px">Book Pages range:</v-subheader>
+                        <v-range-slider
+                                v-model="pagesRange"
+                                :max="pageMax"
+                                :min="min"
+                                step="1"
+                                hide-details
+                                class="align-center"
+                        >
+                            <template v-slot:prepend>
+                                <v-text-field
+                                        :value="pagesRange[0]"
+                                        class="mt-0 pt-0"
+                                        hide-details
+                                        single-line
+                                        type="number"
+                                        style="width: 60px"
+                                        @change="$set(pagesRange, 0, $event)"
+                                ></v-text-field>
+                            </template>
+                            <template v-slot:append>
+                                <v-text-field
+                                        :value="pagesRange[1]"
+                                        class="mt-0 pt-0"
+                                        hide-details
+                                        single-line
+                                        type="number"
+                                        style="width: 60px"
+                                        @change="$set(pagesRange, 1, $event)"
+                                ></v-text-field>
+                            </template>
+                        </v-range-slider>
+
 
                     </v-flex>
                 </v-layout>
                 <v-layout row>
-                    <v-flex xs8 offset-xs1>
+                    <v-flex  offset-xs1 style="margin-left: 4%; margin-right: 4%">
+                        <v-subheader style="font-size: 14px">Authors:</v-subheader>
 
-                    </v-flex>
-                    <v-flex xs3>
-
+                        <v-select class="purple-input" chips multiple :items="authors" item-text="firstName"
+                                  item-value="id"  v-model="search.authors" return-object style="padding-top: 0">
+                            <template slot="item" slot-scope="data">
+                                {{ data.item.firstName }} {{ data.item.lastName }}
+                            </template>
+                            <template v-slot:selection="{ item, index }">
+                                <v-chip>
+                                    <span>{{ item.firstName }} {{ item.lastName }}</span>
+                                </v-chip>
+                            </template>
+                        </v-select>
                     </v-flex>
                 </v-layout>
                 <v-layout row>
-                    <v-flex xs8 offset-xs1>
-
-                    </v-flex>
-                    <v-flex xs3>
-
+                    <v-flex  offset-xs1 style="margin-left: 4%; margin-right: 4%">
+                        <v-subheader style="font-size: 14px">Genres:</v-subheader>
+                        <v-select class="purple-input" chips multiple :items="genres" item-text="name" item-value="id" style="padding-top: 0"
+                                   v-model="search.genres" return-object />
                     </v-flex>
                 </v-layout>
             </search-panel>
@@ -98,8 +172,24 @@
         data() {
             return {
                 books: [],
+                genres:[],
+                authors:[],
                 loading: false,
-                rightDrawer: false
+                rightDrawer: false,
+                min: 1,
+                max: 2100,
+                pageMax:3000,
+                slider: 40,
+                yearsRange: [1, 2100],
+                pagesRange: [1, 3000],
+                search: {
+                    yearFrom:1,
+                    yearTo:2100,
+                    pagesFrom:1,
+                    pagesTo:3100,
+                    genres:[],
+                    authors:[]
+                }
             };
         },
         props: {
@@ -140,9 +230,30 @@
                     });
                 this.loading = false;
             },
-            searchProducts () {
+            async getAllGenres() {
+                axios.get('/backend/genres')
+                    .then(response => {
+                        this.genres = response.data;
+                    });
+            },
+            async getAllAuthors() {
+                axios.get('/backend/authors')
+                    .then(response => {
+                        this.authors = response.data;
+                    });
+            },
+            searchBooks () {
                 this.rightDrawer = !this.rightDrawer;
-
+                this.loading = true;
+                this.search.yearFrom = this.yearsRange[0];
+                this.search.yearTo = this.yearsRange[1];
+                this.search.pagesFrom = this.pagesRange[0];
+                this.search.pagesTo = this.pagesRange[1];
+                axios.post('backend/books/search', this.search)
+                    .then(response => {
+                        this.books = response.data;
+                    });
+                this.loading = false;
             },
             cancelSearch () {
                 this.rightDrawer = false;
@@ -150,6 +261,8 @@
         },
         mounted() {
             this.getAllBooks();
+            this.getAllAuthors();
+            this.getAllGenres();
         }
     };
 </script>

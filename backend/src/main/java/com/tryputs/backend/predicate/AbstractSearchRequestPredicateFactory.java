@@ -68,6 +68,12 @@ public abstract class AbstractSearchRequestPredicateFactory<T extends PageableSe
         }
     }
 
+    void addRangeExpression(final NumberPath<Long> field, final Long from, final Long to) {
+        if (from != null && to != null) {
+            booleanBuilder.and(field.between(from, to));
+        }
+    }
+
     <E, Q extends SimpleExpression<? super E>> void addListExpression(final ListPath<E, Q> qBusinessTypes,
                                                                       final Collection<E> businessTypes) {
         if (!CollectionUtils.isEmpty(businessTypes)) {

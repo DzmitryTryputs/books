@@ -1,9 +1,10 @@
 package com.tryputs.backend.search;
 
+import com.tryputs.backend.dto.AuthorDto;
+import com.tryputs.backend.dto.GenreDto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +15,10 @@ public class BookSearchRequest extends PageableSearchRequest {
     private String title;
     private Long pagesFrom;
     private Long pagesTo;
-    private Year yearFrom;
-    private Year yearTo;
-    private List<GenreSearchRequest> genres = new ArrayList<>();
-    private List<AuthorSearchRequest> authors = new ArrayList<>();
+    private Long yearFrom;
+    private Long yearTo;
+    private List<GenreDto> genres = new ArrayList<>();
+    private List<AuthorDto> authors = new ArrayList<>();
 }
 
 
