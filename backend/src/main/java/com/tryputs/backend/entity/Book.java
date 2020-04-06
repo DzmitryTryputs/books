@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "books")
+@Table(name = "BOOKS")
 @EqualsAndHashCode(callSuper = true)
 public class Book extends IdentifiableEntity {
 

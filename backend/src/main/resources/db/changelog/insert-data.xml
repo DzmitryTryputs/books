@@ -253,4 +253,12 @@
             <column name="genre_id" value="9"/>
         </insert>
     </changeSet>
+
+    <changeSet id="insert_user" author="tryputs">
+        <insert tableName="USERS">
+            <column name="id" value="1"/>
+            <column name="username" value="root"/>
+            <column name="password" value="$2a$10$E8xXwgohQcohpGf4jfiioO44efmxqKDuI5OF1uJJkDaYsPklMIrMm"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
