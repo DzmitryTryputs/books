@@ -11,7 +11,10 @@ export default new Vuex.Store({
     drawer: null,
     status: "",
     token: localStorage.getItem("token") || "",
-    user: {}
+    user: {
+      username:"",
+      id:null
+    }
   },
   getters: {
     isLoggedIn: state => !!state.token,

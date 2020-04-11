@@ -5,7 +5,7 @@ import store from './store.js'
 import Login from './views/auth/Login'
 import Books from './views/books/Books'
 
-Vue.use(Router)
+Vue.use(Router);
 
 let router = new Router({
     mode: 'hash',
@@ -14,52 +14,51 @@ let router = new Router({
         {
             path: '/',
             component: () => import('@/views/components/core/Index'),
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            name: 'Books',
-            path: '/books',
-            component: Books,
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            path: '/books/create',
-            name: 'Create Book',
-            component: () => import('@/views/books/Create'),
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            name: 'Authors',
-            path: '/authors',
-            component: () => import('@/views/authors/Authors'),
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            name: 'Create Author',
-            path: '/authors/create',
-            component: () => import('@/views/authors/Create'),
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            name: 'Login',
-            path: '/login',
-            component: Login,
+            children : [
+                {
+                    name: 'Books',
+                    path: '/books',
+                    component: Books,
+                    meta: {
+                        requiresAuth: true
+                    }
+                },
+                {
+                    path: '/books/create',
+                    name: 'Create Book',
+                    component: () => import('@/views/books/Create'),
+                    meta: {
+                        requiresAuth: true
+                    }
+                },
+                {
+                    name: 'Authors',
+                    path: '/authors',
+                    component: () => import('@/views/authors/Authors'),
+                    meta: {
+                        requiresAuth: true
+                    }
+                },
+                {
+                    name: 'Create Author',
+                    path: '/authors/create',
+                    component: () => import('@/views/authors/Create'),
+                    meta: {
+                        requiresAuth: true
+                    }
+                },
+                {
+                    name: 'Login',
+                    path: '/login',
+                    component: Login,
 
-        },
-        {
-            name: 'Register',
-            path: '/register',
-            component: () => import('@/views/auth/Register'),
+                },
+                {
+                    name: 'Register',
+                    path: '/register',
+                    component: () => import('@/views/auth/Register'),
+                }
+            ]
         }
     ],
 });

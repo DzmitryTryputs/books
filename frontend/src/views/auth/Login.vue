@@ -1,5 +1,5 @@
 <template>
-    <v-app id="inspire">
+    <v-app>
         <v-content>
             <v-container fluid>
                 <v-row align="center" justify="center">
