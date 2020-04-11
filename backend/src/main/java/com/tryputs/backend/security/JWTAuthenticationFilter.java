@@ -2,7 +2,7 @@ package com.tryputs.backend.security;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tryputs.backend.entity.ApplicationUser;
+import com.tryputs.backend.dto.UserDto;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -35,8 +35,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
-            ApplicationUser user = new ObjectMapper()
-                .readValue(req.getInputStream(), ApplicationUser.class);
+            UserDto user = new ObjectMapper()
+                .readValue(req.getInputStream(), UserDto.class);
 
             return authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
