@@ -1,32 +1,59 @@
 <template>
-  <div>
-    <h4>Register</h4>
-    <form @submit.prevent="register">
-      <label for="username">Username</label>
-      <div>
-        <input id="username" type="text" v-model="username" required autofocus>
-      </div>
+  <v-app id="inspire">
+    <v-content>
+      <v-container fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card>
+              <v-toolbar color="primary" dark flat>
+                <v-toolbar-title>Register</v-toolbar-title>
+                <v-spacer/>
+              </v-toolbar>
+              <v-card-text>
+                <v-form  class="register">
+                  <v-text-field
+                          v-model="username"
+                          label="Login"
+                          name="login"
+                          required
+                          type="text"
+                          class="py-0"
+                  />
 
-      <label for="email">E-Mail Address</label>
-      <div>
-        <input id="email" type="email" v-model="email" required>
-      </div>
-
-      <label for="password">Password</label>
-      <div>
-        <input id="password" type="password" v-model="password" required>
-      </div>
-
-      <label for="password-confirm">Confirm Password</label>
-      <div>
-        <input id="password-confirm" type="password" v-model="password_confirmation" required>
-      </div>
-
-      <div>
-        <button type="submit">Register</button>
-      </div>
-    </form>
-  </div>
+                  <v-text-field
+                          v-model="password"
+                          id="password"
+                          label="Password"
+                          name="password"
+                          required
+                          type="password"
+                  />
+                  <v-text-field
+                          v-model="password_confirmation"
+                          id="password-confirm"
+                          label="Confirm Password"
+                          name="password-confirm"
+                          required
+                          type="password"
+                  />
+                </v-form>
+              </v-card-text>
+              <v-row align="center" justify="center">
+                <v-col cols="12">
+                  <v-card-actions>
+                    <v-spacer/>
+                    <v-btn @click="register" color="primary" style="margin-right: 0">Register</v-btn>
+                    <v-spacer/>
+                    <v-btn color="primary" style="margin-right: 7px" to="/login">Cancel</v-btn>
+                  </v-card-actions>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 <script>
 export default {
@@ -44,13 +71,11 @@ export default {
     register: function() {
       let data = {
         username: this.username,
-        email: this.email,
-        password: this.password,
-        is_admin: this.is_admin
+        password: this.password
       };
       this.$store
         .dispatch("register", data)
-        .then(() => this.$router.push("/"))
+        .then(() => this.$router.push("/login"))
         .catch(err => console.log(err));
     }
   }

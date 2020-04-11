@@ -64,7 +64,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "/backend/sign-up",
+          url: "/backend/users/sign-up",
           data: user,
           method: "POST"
         })
