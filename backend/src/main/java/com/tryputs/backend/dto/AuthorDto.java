@@ -1,8 +1,6 @@
 package com.tryputs.backend.dto;
 
-import com.tryputs.backend.entity.Book;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,5 +18,5 @@ public class AuthorDto extends AbstractDto {
     private String firstName;
     private String lastName;
     private LocalDate dob;
-    private List<Long> booksId = new ArrayList<>();
+    private List<BookDto> books = new ArrayList<>();
 }

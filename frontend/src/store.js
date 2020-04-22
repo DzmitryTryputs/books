@@ -12,7 +12,7 @@ export default new Vuex.Store({
     status: "",
     token: localStorage.getItem("token") || "",
     user: {
-      username:"",
+      email:"",
       id:null
     }
   },

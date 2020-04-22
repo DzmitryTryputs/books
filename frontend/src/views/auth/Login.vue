@@ -13,10 +13,11 @@
                                 <v-form  class="login">
                                     <v-text-field
                                             v-model="email"
-                                            label="Login"
-                                            name="login"
+
+                                            label="Email"
+                                            name="email"
                                             prepend-icon="mdi-account"
-                                            type="text"
+                                            type="email"
                                             class="py-0"
                                     />
 
@@ -57,10 +58,10 @@
         },
         methods: {
             login: function () {
-                let username = this.email;
+                let email = this.email;
                 let password = this.password;
                 this.$store
-                    .dispatch("login", {username, password})
+                    .dispatch("login", {email, password})
                     .then(() => this.$router.push("/"))
                     .catch(err => console.log(err));
             }

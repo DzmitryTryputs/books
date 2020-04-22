@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -16,6 +17,9 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 public class ApplicationUser extends IdentifiableEntity {
 
-    private String username;
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "PASSWORD")
     private String password;
 }

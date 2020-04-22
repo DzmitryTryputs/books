@@ -12,11 +12,11 @@
               <v-card-text>
                 <v-form  class="register">
                   <v-text-field
-                          v-model="username"
-                          label="Login"
+                          v-model="email"
+                          label="Email"
                           name="login"
                           required
-                          type="text"
+                          type="email"
                           class="py-0"
                   />
 
@@ -60,7 +60,6 @@ export default {
   data() {
     return {
       name: "",
-      username: "",
       email: "",
       password: "",
       password_confirmation: "",
@@ -70,7 +69,7 @@ export default {
   methods: {
     register: function() {
       let data = {
-        username: this.username,
+        email: this.email,
         password: this.password
       };
       this.$store

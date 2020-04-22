@@ -15,5 +15,5 @@ import java.util.List;
 public class GenreDto extends AbstractDto {
 
     private String name;
-    private List<Long> booksId = new ArrayList<>();
+    private List<BookDto> books = new ArrayList<>();
 }

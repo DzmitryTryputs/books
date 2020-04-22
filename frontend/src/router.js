@@ -5,7 +5,7 @@ import store from './store.js'
 import Login from './views/auth/Login'
 import Books from './views/books/Books'
 
-Vue.use(Router);
+Vue.use(Router)
 
 let router = new Router({
     mode: 'hash',

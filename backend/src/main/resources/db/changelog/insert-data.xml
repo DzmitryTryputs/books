@@ -257,8 +257,9 @@
     <changeSet id="insert_user" author="tryputs">
         <insert tableName="USERS">
             <column name="id" value="1"/>
-            <column name="username" value="root"/>
+            <column name="email" value="root@root.com"/>
             <column name="password" value="$2a$10$E8xXwgohQcohpGf4jfiioO44efmxqKDuI5OF1uJJkDaYsPklMIrMm"/>
+            <!--Token: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb290QHJvb3QuY29tIiwiZXhwIjoxNTg4Mzc1NjM0fQ.15kQRBRAK_3DY8tfPh3YoO5Z_YqTF8q_5KVwxGGuPius_c6bkMfHgiSqsZMsfdGwx5ooPKTQ5Zn8bi5tv-OF4Q            -->
         </insert>
     </changeSet>
 </databaseChangeLog>

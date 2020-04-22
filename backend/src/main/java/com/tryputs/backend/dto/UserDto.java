@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDto extends AbstractDto {
 
-    private String username;
+    private String email;
     private String password;
 }
