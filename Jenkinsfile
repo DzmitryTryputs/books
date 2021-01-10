@@ -16,7 +16,7 @@ pipeline {
 
         stage ('Build stage') {
             steps {
-                sh 'cd backend && start mvn spring-boot:run -DskipTests'
+                sh 'cd backend && mvn spring-boot:run -DskipTests'
             }
             post {
                 success {
