@@ -21,7 +21,7 @@ pipeline {
             post {
                 success {
                     sh '''
-                        echo "FINISH"
+                        echo "FINISH BUILD"
                     '''
                 }
              }
