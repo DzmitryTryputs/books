@@ -16,12 +16,12 @@ pipeline {
 
         stage ('Build stage') {
             steps {
-                sh 'cd backend && mvn spring-boot:run -DskipTests'
+                sh 'cd backend && mvn install -DskipTests'
             }
             post {
                 success {
                     sh '''
-                        echo "FINISH BUILD"
+                        echo "FINISH BUILD TEST"
                     '''
                 }
              }
