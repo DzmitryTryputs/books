@@ -70,6 +70,12 @@ public class OffsetLimitRequest implements Pageable {
     }
 
     @Override
+    @NonNull
+    public Pageable withPage(final int i) {
+        return this;
+    }
+
+    @Override
     public boolean hasPrevious() {
         return false;
     }
