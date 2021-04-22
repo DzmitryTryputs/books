@@ -1,11 +1,10 @@
-FROM node:10-alpine
+FROM node:12-alpine
 
-RUN mkdir -p /front
-WORKDIR /usr/front
+RUN mkdir -p /frontend
+WORKDIR /usr/frontend
 COPY package*.json ./
-COPY package.json /front/package.json
-COPY package-lock.json /front/package-lock.json
-RUN npm install
+COPY package.json /frontend/package.json
+COPY package-lock.json /frontend/package-lock.json
+RUN npm install --production
 COPY . .
-
-ENTRYPOINT ["npm", "run", "start"]
+CMD ["npm", "run", "serve"]

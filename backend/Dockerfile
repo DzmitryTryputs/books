@@ -1,7 +1,7 @@
 FROM maven:3.6.0-jdk-11-slim AS build
 COPY backend/src /usr/app/backend/src
 COPY backend/pom.xml /usr/app/backend
-COPY pom.xml /usr/app
+COPY backend/pom.xml /usr/app
 RUN mvn -f /usr/app/backend/pom.xml clean package -DskipTests
 
 FROM openjdk:8
